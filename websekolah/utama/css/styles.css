@@ -1,0 +1,670 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  /* Remove fixed left/right margins for better responsiveness */
+  display: flex;
+  /* Use flexbox for centering */
+  flex-direction: column;
+  /* Stack content vertically */
+  align-items: center;
+  /* Center items */
+}
+
+/* Header */
+header {
+  width: 100%;
+  background-color: #4caf50;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+}
+
+/* Navbar Items */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.nav-items {
+  display: flex;
+  margin-left: auto;
+  /* Pushes nav items to the right */
+}
+
+.btn {
+  background-color: white;
+  color: #4caf50;
+  border: 2px solid #4caf50;
+  padding: 10px 15px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1500;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  text-align: center;
+}
+
+.sidebar ul li .btn {
+  width: 80%;
+  background-color: white;
+  color: #333;
+  border: none;
+}
+
+.sidebar ul li .btn:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Main Content Layout */
+main {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+  transition: margin-left 0.3s ease;
+  width: 100%;
+  /* Full width */
+}
+
+/* Top Section */
+
+.top-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Warna hitam dengan transparansi 50% */
+  z-index: 0;
+}
+
+.top-section * {
+  position: relative;
+  /* Konten di atas overlay */
+  z-index: 1;
+}
+
+/* Swiper Styles */
+.swiper-container {
+  width: 100%;
+  /* Set to 100% for responsiveness */
+  max-width: 650px;
+  /* Max width for larger screens */
+  margin: auto;
+  /* Center the swiper container */
+  overflow: hidden;
+  filter: brightness(100%);
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  /* Responsive width */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+.moving-image {
+  width: 200px;
+  position: relative;
+  animation: move 20s linear infinite;
+  display: block;
+  margin: 50px auto 105px;
+  /* Center and space images */
+}
+
+@keyframes move {
+  0% {
+    right: -130px;
+  }
+
+  10% {
+    right: 5%;
+  }
+}
+
+/* Title above Swiper */
+.title {
+  text-align: center;
+  font-size: 2.7rem;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Moving Text below Swiper */
+.moving-text {
+  text-align: center;
+  height: 28px;
+  margin-bottom: -22px;
+  margin-right: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
+  width: 100%;
+}
+
+.moving-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.438);
+  /* Warna hitam dengan transparansi 50% */
+  z-index: 1;
+  /* Menempatkan overlay di atas background */
+}
+
+.moving-text * {
+  position: relative;
+  z-index: 2;
+  /* Konten di atas overlay */
+}
+
+/* Middle Section Styles */
+.middle-section {
+  position: sticky;
+  /* Membuat elemen middle-section mengikuti scroll */
+  top: 0.5px;
+  padding: 10px;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 1.5rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #1b2230;
+  color: #ffffff;
+}
+
+.middle-section .menu {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 10px;
+  margin-left: 20px;
+  width: 100%;
+}
+
+.middle-section .menu .mn {
+  text-align: center;
+}
+
+.middle-section .menu .mn {
+  text-align: center;
+}
+
+.logo-home {
+  width: 30px;
+  /* Sesuaikan ukuran logo */
+  height: auto;
+}
+
+/* Bottom Section split into left and right */
+.bottom-section {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow wrapping for responsiveness */
+  width: 100%;
+  /* Ensure full width */
+}
+
+.left-part {
+  flex: 1;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+  /* Set max height */
+  width: calc(60% - 30px);
+  /* Responsive width with padding adjustment */
+  margin: 10px;
+  /* Margin for spacing */
+}
+
+article {
+  margin-bottom: 10px;
+  padding: 15px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1.2rem;
+}
+
+.artikel-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+p {
+  margin-top: 15px;
+}
+
+.artikel-content p {
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+a {
+  margin-top: 200px;
+}
+
+.artikel-image {
+  width: 60%;
+  height: 20%;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.left-part p {
+  flex: 1;
+}
+
+/* Gaya Umum untuk Bagian Kanan */
+.right-part {
+  max-width: 600px;
+  padding: 20px;
+  /* Jarak dalam */
+  background-color: #f9f9f9;
+  /* Warna latar belakang */
+  border-radius: 8px;
+  /* Sudut membulat */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Bayangan */
+}
+
+/* Gaya untuk Slider Guru */
+.guru-slider {
+  width: 100%;
+  /* Lebar penuh untuk slider */
+  max-width: 2000px;
+  /* Lebar maksimum untuk slider */
+  margin: 0 auto;
+  /* Memusatkan slider */
+}
+
+/* Gaya untuk Gambar di dalam Kartu */
+.guru-image {
+  width: 10%;
+  /* Lebar penuh gambar */
+  height: 20%;
+  /* Tinggi otomatis untuk menjaga aspek rasio */
+  max-height: 200px;
+  /* Maksimal tinggi gambar */
+}
+
+/* Gaya untuk Slider Swiper */
+.swiper-wrapper {
+  display: flex;
+  /* Mengatur tampilan wrapper sebagai flex */
+  height: 300px;
+}
+
+.swiper-slide {
+  display: flex;
+  /* Mengatur tampilan slide sebagai flex */
+  justify-content: center;
+  /* Memusatkan konten */
+  align-items: center;
+  /* Memusatkan konten secara vertikal */
+}
+
+/* Gaya untuk Kartu Guru */
+.card {
+  background-color: white;
+  /* Warna latar belakang kartu */
+  border-radius: 8px;
+  /* Sudut membulat pada kartu */
+  overflow: hidden;
+  /* Menghindari konten melampaui batas kartu */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  /* Bayangan pada kartu */
+  text-align: start;
+  /* Memusatkan teks di dalam kartu */
+  padding: 10px;
+  /* Jarak dalam untuk kartu */
+  margin: 10px;
+  margin-bottom: 20px;
+  /* Jarak antara kartu */
+  height: 310px;
+  /* Allow card height to adjust */
+}
+
+/* Gaya untuk Judul dan Teks pada Kartu */
+.card h3 {
+  font-size: 1rem;
+  /* Ukuran font untuk nama guru */
+  margin: 10px 0;
+  /* Jarak atas dan bawah */
+}
+
+.card p {
+  margin: 5px 0;
+  /* Jarak atas dan bawah untuk teks */
+  font-size: 0.9rem;
+  /* Ukuran font untuk mata pelajaran dan jabatan */
+}
+
+.statistics {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.statistics,
+h2 {
+  margin-bottom: 20px;
+}
+
+/* Gaya untuk Peta Sekolah */
+.map-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  max-width: 650px;
+  /* Batasan lebar maksimal card */
+  margin-left: auto;
+  /* Agar center jika ada margin otomatis */
+  margin-right: auto;
+}
+
+.map-container {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+
+.map-container h2 {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  /* Jarak bawah untuk judul peta */
+  font-size: 1.5rem;
+  /* Ukuran font untuk judul peta */
+}
+
+.map-container iframe {
+  border-radius: 10px;
+  /* Sudut membulat pada iframe */
+  width: 100%;
+  /* Full width */
+  height: 300px;
+  /* Set height for map */
+}
+
+footer {
+  background-color: #1b2230;
+  /* Warna latar belakang */
+  color: #fff;
+  /* Warna teks */
+  padding: 40px 0;
+  /* Padding atas dan bawah */
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+  /* Kolom otomatis sesuai ukuran layar */
+  gap: 20px;
+  /* Jarak antar kolom */
+  max-width: 1200px;
+  /* Lebar maksimal */
+  margin: 0 auto;
+  /* Rata tengah */
+  padding: 0 5px;
+  /* Padding kiri dan kanan */
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+  padding: 10px;
+}
+
+.footer-left h2,
+.footer-middle h2,
+.footer-right h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.footer-left {
+  width: 410px;
+}
+
+.footer-left p {
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  text-align: justify;
+}
+
+.footer-right p {
+  font-size: 16px;
+}
+
+.footer-middle {
+  padding-left: 80px;
+}
+
+.footer-middle ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-middle ul li {
+  margin-bottom: 10px;
+}
+
+.footer-middle ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer-middle ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-right .socials {
+  margin-top: 20px;
+}
+
+.footer-right .socials a {
+  margin-right: 15px;
+}
+
+.footer-right .socials img {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-bottom {
+  text-align: center;
+  background-color: #0d1117;
+  /* Warna latar bagian bawah footer */
+  padding: 10px 0;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #ccc;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+    width: 100%;
+    /* Remove margins on smaller screens */
+  }
+
+  .top-section {
+    min-height: 450px;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    /* Reduce height on very small screens */
+  }
+
+  .nav-items {
+    display: none;
+    /* Hide nav items on small screens */
+  }
+
+  .hamburger {
+    display: flex;
+    /* Show hamburger menu */
+  }
+
+  article {
+    width: 100%;
+  }
+
+  .bottom-section {
+    flex-direction: column;
+    /* Stack left and right parts vertically */
+  }
+
+  .left-part {
+    width: 98%;
+    /* Full width on smaller screens */
+  }
+
+  .right-part {
+    width: 100%;
+    /* Full width for right part */
+    margin: 10px 0;
+    /* Add margin for spacing */
+  }
+
+  .title {
+    font-size: 1.8rem;
+    /* Smaller font size for title */
+  }
+
+  .moving-text {
+    font-size: 1.2rem;
+    margin-bottom: 1px;
+    /* Smaller font size for moving text */
+  }
+
+  /* Adjust swiper styles for smaller screens */
+  .swiper-container {
+    width: 100%;
+    /* Allow full width */
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    /* Responsive image */
+    height: auto;
+    /* Maintain aspect ratio */
+  }
+
+  .guru-slider {
+    max-width: 100%;
+    /* Full width for slider */
+  }
+
+  .card {
+    /* Reduce margin for smaller screens */
+    width: 100%;
+  }
+}
+
+@media (max-width: 425px) {
+  .top-section {
+    min-height: 500px;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    /* Reduce height on very small screens */
+  }
+
+  .title-text {
+    font-size: 1.5rem;
+    /* Even smaller title font size */
+  }
+
+  .moving-text {
+    font-size: 1rem;
+    /* Smaller moving text */
+  }
+
+  .hamburger .bar {
+    width: 20px;
+    /* Smaller bars in the hamburger */
+  }
+
+  .hamburger {
+    z-index: 1001;
+    /* Make sure the hamburger is on top */
+  }
+}
